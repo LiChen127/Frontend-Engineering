@@ -517,6 +517,16 @@ h2 {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "6516428482e802bdbf353f31f3743b09.png");
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -585,6 +595,11 @@ h2 {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "dist/";
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
@@ -597,11 +612,19 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heading_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var _image_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
+
 
 
 const heading = (0,_heading_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 document.body.append(heading);
+
+const img = new Image();
+img.src = _image_png__WEBPACK_IMPORTED_MODULE_2__["default"];
+document.body.append(img);
+
+
 })();
 
 /******/ })()

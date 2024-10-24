@@ -74,3 +74,40 @@ webpack 导入资源模块
 webpack 的哲学: 真正需要资源的不是应用而是代码
 
 webpack 文件资源加载器
+file-loader
+webpack默认认为所有打包结果放到网站根目录下
+const path = require("path");
+
+module.exports = {
+  mode:  'none',
+  entry: "./src/main.js",
+  output: {
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'output'),
+    publicPath: 'dist/', // 空字符串代表根目录 dist目录 dist/ 斜线不能省略
+  },
+  module: {
+    rules: [
+      {
+        test: /.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /.png$/,
+        use: 'file-loader'
+      }
+    ]
+  }
+}
+__webpack_require__.p = "dist/"; 这一行代码就说明了为什么不能省略
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "6516428482e802bdbf353f31f3743b09.png");
+
+webpack打包时遇到了图片文件，然后呢根据我们配置文件中的配置匹配到对应的文件加载器，然后文件加载器开始工作，先是将我们导入的这个文件拷贝到输出的目录，然后将我们文件拷贝到输出目录过后的那个路径作为当前模块的返回值返回
+
+
+Data URLs 一种特殊的URL协议，可以直接来表示一个文件
+传统url要求服务器上要有一个文件而dataurl是一种当前url就可以直接去表示文件内容的方式
+使用这种url时，我们就不会再去发送任何的http请求
+
+通过dataurl就可以以代码的形式来表示任何类型的文件了
+yarn add url-loader
